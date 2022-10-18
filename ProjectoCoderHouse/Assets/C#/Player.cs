@@ -23,20 +23,22 @@ public class Player : MonoBehaviour
 
     void Update() 
     {
-       ToggleCam(); 
-    }
-    void FixedUpdate()
-    {   
         if(energy < MAXENERGY){
-            energy += energyRechargeRate;
+            energy += energyRechargeRate * Time.deltaTime;
         }
 
         if(Input.GetMouseButton(0) && energy > 0f){
             m_AxisMultiplier = 4f;
-            energy-=10f;
+            energy-=10f * Time.deltaTime;
         }else{
             m_AxisMultiplier = 2f;
         }
+
+        ToggleCam(); 
+    }
+    void FixedUpdate()
+    {   
+        
 
         inputForce.x = Input.GetAxis("Horizontal")*m_AxisMultiplier;
         inputForce.z = 1;
@@ -57,6 +59,13 @@ public class Player : MonoBehaviour
                 camOne.SetActive(true);
                 camTwo.SetActive(false);
             }
+        }
+    }
+
+    void OnTriggerEnter(Collider colider)
+    {
+        if(colider.transform.gameObject.tag == "Obstacle"){
+            Destroy(this);
         }
     }
 }
