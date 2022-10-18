@@ -1,4 +1,3 @@
-
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -15,6 +14,8 @@ public class Player : MonoBehaviour
 
     public GameObject camOne;
     public GameObject camTwo;
+
+    public GameObject exit;
     void Start()
     {
         inputForce = Vector3.zero;
@@ -38,13 +39,12 @@ public class Player : MonoBehaviour
     }
     void FixedUpdate()
     {   
-        
-
         inputForce.x = Input.GetAxis("Horizontal")*m_AxisMultiplier;
         inputForce.z = 1;
         inputForce *= m_Thrust;
         m_Rigidbody.AddForce(inputForce * Time.fixedDeltaTime, ForceMode.Impulse);
     }
+
     void ToggleCam()
     {
         if(Input.GetKeyDown(KeyCode.V))
@@ -66,6 +66,10 @@ public class Player : MonoBehaviour
     {
         if(colider.transform.gameObject.tag == "Obstacle"){
             Destroy(this);
+        }
+        Debug.Log(colider.transform.gameObject.name);
+        if(colider.transform.gameObject.name == "Portal"){
+            transform.position = exit.transform.position;
         }
     }
 }
