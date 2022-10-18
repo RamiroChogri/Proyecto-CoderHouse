@@ -12,13 +12,19 @@ public class Player : MonoBehaviour
     float energy = 100f;
     float energyRechargeRate = 20f;
     Vector3 inputForce;
+
+    public GameObject camOne;
+    public GameObject camTwo;
     void Start()
     {
         inputForce = Vector3.zero;
         m_Rigidbody = GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frame
+    void Update() 
+    {
+       ToggleCam(); 
+    }
     void FixedUpdate()
     {   
         if(energy < MAXENERGY){
@@ -33,8 +39,24 @@ public class Player : MonoBehaviour
         }
 
         inputForce.x = Input.GetAxis("Horizontal")*m_AxisMultiplier;
-        //inputForce.z = 1;
+        inputForce.z = 1;
         inputForce *= m_Thrust;
         m_Rigidbody.AddForce(inputForce * Time.fixedDeltaTime, ForceMode.Impulse);
+    }
+    void ToggleCam()
+    {
+        if(Input.GetKey(KeyCode.V))
+        {
+            if(camOne.activeInHierarchy)
+            {
+                camOne.SetActive(false);
+                camTwo.SetActive(true);
+            }
+            else
+            {
+                camOne.SetActive(true);
+                camTwo.SetActive(false);
+            }
+        }
     }
 }
