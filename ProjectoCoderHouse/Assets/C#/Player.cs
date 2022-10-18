@@ -1,4 +1,6 @@
+
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -16,6 +18,7 @@ public class Player : MonoBehaviour
     public GameObject camTwo;
 
     public GameObject exit;
+    public Text energyLabel;
     void Start()
     {
         inputForce = Vector3.zero;
@@ -24,24 +27,25 @@ public class Player : MonoBehaviour
 
     void Update() 
     {
-        if(energy < MAXENERGY){
+        if(!Input.GetMouseButton(0) && energy < MAXENERGY){
             energy += energyRechargeRate * Time.deltaTime;
         }
 
-        if(Input.GetMouseButton(0) && energy > 0f){
+        if(Input.GetMouseButton(0) && energy > 1f){
             m_AxisMultiplier = 4f;
-            energy-=10f * Time.deltaTime;
+            energy-=40f * Time.deltaTime;
         }else{
             m_AxisMultiplier = 2f;
         }
-
+        energyLabel.text = "Energy: "+ energy.ToString();
+        Debug.Log(m_AxisMultiplier);
         ToggleCam(); 
     }
     void FixedUpdate()
     {   
         inputForce.x = Input.GetAxis("Horizontal")*m_AxisMultiplier;
-        inputForce.z = 1;
         inputForce *= m_Thrust;
+        m_Rigidbody.velocity = new Vector3(m_Rigidbody.velocity.x, m_Rigidbody.velocity.y, m_Thrust);
         m_Rigidbody.AddForce(inputForce * Time.fixedDeltaTime, ForceMode.Impulse);
     }
 
@@ -65,7 +69,7 @@ public class Player : MonoBehaviour
     void OnTriggerEnter(Collider colider)
     {
         if(colider.transform.gameObject.tag == "Obstacle"){
-            Destroy(this);
+            Destroy(this.gameObject);
         }
         Debug.Log(colider.transform.gameObject.name);
         if(colider.transform.gameObject.name == "Portal"){
