@@ -47,7 +47,7 @@ public class Player : MonoBehaviour
     }
     void ToggleCam()
     {
-        if(Input.GetKey(KeyCode.V))
+        if(Input.GetKeyDown(KeyCode.V))
         {
             if(camOne.activeInHierarchy)
             {
