@@ -21,9 +21,10 @@ public class Player : MonoBehaviour
     public Text energyLabel;
 
     public GameObject boom;
-    public Transform player;
+    private Transform player;
     void Start()
     {
+        player = this.gameObject.transform;
         inputForce = Vector3.zero;
         m_Rigidbody = GetComponent<Rigidbody>();
     }
@@ -35,20 +36,19 @@ public class Player : MonoBehaviour
         }
 
         if(Input.GetMouseButton(0) && energy > 1f){
-            m_AxisMultiplier = 4f;
+            m_AxisMultiplier = 6f;
             energy-=40f * Time.deltaTime;
         }else{
             m_AxisMultiplier = 2f;
         }
         energyLabel.text = "Energy: "+ energy.ToString();
-        Debug.Log(m_AxisMultiplier);
         ToggleCam(); 
     }
     void FixedUpdate()
     {   
         inputForce.x = Input.GetAxis("Horizontal")*m_AxisMultiplier;
         inputForce *= m_Thrust;
-        m_Rigidbody.velocity = new Vector3(m_Rigidbody.velocity.x, m_Rigidbody.velocity.y, m_Thrust);
+        m_Rigidbody.velocity = new Vector3(m_Rigidbody.velocity.x, m_Rigidbody.velocity.y, 40f);
         m_Rigidbody.AddForce(inputForce * Time.fixedDeltaTime, ForceMode.Impulse);
     }
 
@@ -72,15 +72,13 @@ public class Player : MonoBehaviour
     void OnTriggerEnter(Collider colider)
     {
         if(colider.transform.gameObject.tag == "Obstacle"){
-            Destroy(this.gameObject);
+            Instantiate(boom,player.position,player.rotation);
+            this.gameObject.SetActive(false);
+            Destroy(this.gameObject,2f);
         }
-        Debug.Log(colider.transform.gameObject.name);
+
         if(colider.transform.gameObject.name == "Portal"){
             transform.position = exit.transform.position;
         }
-    }
-    void OnDestroy()
-    {
-        Instantiate(boom,player.position,player.rotation);
     }
 }
