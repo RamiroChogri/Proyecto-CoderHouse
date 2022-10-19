@@ -792,6 +792,8 @@ MonoBehaviour:
   camTwo: {fileID: 1830587088}
   exit: {fileID: 567607323}
   energyLabel: {fileID: 2105969538}
+  boom: {fileID: 1000011797152326, guid: acf39d9f4addf294d93fa56fa373961b, type: 3}
+  player: {fileID: 904377037}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
