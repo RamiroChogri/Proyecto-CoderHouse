@@ -19,6 +19,9 @@ public class Player : MonoBehaviour
 
     public GameObject exit;
     public Text energyLabel;
+
+    public GameObject boom;
+    public Transform player;
     void Start()
     {
         inputForce = Vector3.zero;
@@ -75,5 +78,9 @@ public class Player : MonoBehaviour
         if(colider.transform.gameObject.name == "Portal"){
             transform.position = exit.transform.position;
         }
+    }
+    void OnDestroy()
+    {
+        Instantiate(boom,player.position,player.rotation);
     }
 }
