@@ -30,7 +30,7 @@ public class Stopwatch : MonoBehaviour
     }
     void OnTriggerEnter(Collider col)
     {
-        if(col.transform.gameObject.name == "StartLine")
+        if(col.transform.gameObject.name == "Player")
         {
             currentTimeText.enabled = true;
             stopwatchActive = true;
