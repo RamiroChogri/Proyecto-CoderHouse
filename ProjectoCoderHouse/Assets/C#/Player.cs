@@ -74,7 +74,7 @@ public class Player : MonoBehaviour
         if(colider.transform.gameObject.tag == "Obstacle"){
             Destroy(this.gameObject);
         }
-        Debug.Log(colider.transform.gameObject.name);
+
         if(colider.transform.gameObject.name == "Portal"){
             transform.position = exit.transform.position;
         }
