@@ -12,7 +12,7 @@ public class Relocator : MonoBehaviour
     {
         m_Rigidbody = GetComponent<Rigidbody>();
 
-        m_Rigidbody.velocity = zAxis * 40f;
+        m_Rigidbody.velocity = zAxis * 20f;
     }
 
     void OnTriggerEnter(Collider colider)

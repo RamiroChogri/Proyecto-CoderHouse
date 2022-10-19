@@ -10,4 +10,9 @@ public class Portal : MonoBehaviour
     public Vector3 GetExitCoordinates(){
         return exit.transform.position;
     }
+
+    void OnTriggerEnter(Collider other)
+    {
+        
+    }
 }
