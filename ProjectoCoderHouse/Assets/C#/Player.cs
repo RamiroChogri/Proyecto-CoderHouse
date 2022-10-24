@@ -19,6 +19,7 @@ public class Player : MonoBehaviour
 
     public GameObject exit;
     public Text energyLabel;
+    public GameObject warningPanel;
 
     public GameObject boom;
     private Transform player;
@@ -50,6 +51,13 @@ public class Player : MonoBehaviour
         inputForce *= m_Thrust;
         m_Rigidbody.velocity = new Vector3(m_Rigidbody.velocity.x, m_Rigidbody.velocity.y, 40f);
         m_Rigidbody.AddForce(inputForce * Time.fixedDeltaTime, ForceMode.Impulse);
+
+        
+        if (Physics.Raycast(transform.position, Vector3.forward, 30)){
+            warningPanel.SetActive(true);
+        }else{
+            warningPanel.SetActive(false);
+        }
     }
 
     void ToggleCam()
