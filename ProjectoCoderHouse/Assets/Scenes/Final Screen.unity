@@ -402,7 +402,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 240, y: 192}
+  m_AnchoredPosition: {x: 412, y: 183}
   m_SizeDelta: {x: 619.6282, y: 106.0287}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &143345391
@@ -660,7 +660,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 405, y: 142}
+  m_AnchoredPosition: {x: 577, y: 133}
   m_SizeDelta: {x: 619.6282, y: 106.0287}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &634159111
@@ -1003,7 +1003,7 @@ MonoBehaviour:
   scoreLabel: {fileID: 1090753133}
   highScoreLabel: {fileID: 1129000378}
   pastScoresLabel: {fileID: 2031972488}
-  leaderBoardValues: {fileID: 0}
+  leaderBoardValues: {fileID: 634159111}
 --- !u!4 &860929427
 Transform:
   m_ObjectHideFlags: 0

@@ -11,6 +11,8 @@ public class GameOverScreen : MonoBehaviour
     public Text highScoreLabel;
     public Text pastScoresLabel;
     public Text leaderBoardValues;
+
+    Dictionary<string,int> ranks = new Dictionary<string,int>();
     // Start is called before the first frame update
     void Start()
     {
@@ -34,14 +36,21 @@ public class GameOverScreen : MonoBehaviour
         scoreLabel.text = "Your Score : 25";
 
         //Los Leaderboards
-        _highScores.Add("Roberta 40");
-        _highScores.Add("Joaquina 35");
-        _highScores.Add("Ana 27");
-        _highScores.Add("Naty 18");
+        _highScores.Add("Roberta");
+        _highScores.Add("Joaquina");
+        _highScores.Add("Ana");
+        _highScores.Add("Naty");
+
+        ranks.Add("Roberta",40);
+        ranks.Add("Joaquina", 23);
+        ranks.Add("Ana" ,13);
+        ranks.Add("Naty", 4);
         
         string leaderBoard = "";
         foreach(string score in _highScores){
-            leaderBoard += score.ToString();
+            leaderBoard += score;
+            leaderBoard += "-";
+            leaderBoard += ranks[score];
             leaderBoard += "\n";
         }
         leaderBoardValues.text = leaderBoard;
