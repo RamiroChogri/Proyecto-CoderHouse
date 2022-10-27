@@ -1,10 +1,11 @@
 
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class GameOverScreen : MonoBehaviour
 {
-
+    List<string> _highScores = new List<string>();
     public Text scoreLabel;
     float[] scores;
     public Text highScoreLabel;
@@ -31,6 +32,19 @@ public class GameOverScreen : MonoBehaviour
         pastScoresLabel.text = pastScores;
         highScoreLabel.text = maxScore.ToString();
         scoreLabel.text = "Your Score : 25";
+
+        //Los Leaderboards
+        _highScores.Add("Roberta 40");
+        _highScores.Add("Joaquina 35");
+        _highScores.Add("Ana 27");
+        _highScores.Add("Naty 18");
+        
+        string leaderBoard = "";
+        foreach(string score in _highScores){
+            leaderBoard += score.ToString();
+            leaderBoard += "\n";
+        }
+        leaderBoardValues.text = leaderBoard;
     }
 
     // Update is called once per frame
