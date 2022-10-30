@@ -1,10 +1,11 @@
 
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
-    // Start is called before the first frame update
+    // Dsp de cada entrada al portal agregar velocidad
     float m_Thrust = 20f;
     float m_AxisMultiplier = 2f;
     Rigidbody m_Rigidbody;
@@ -83,6 +84,7 @@ public class Player : MonoBehaviour
             Instantiate(boom,player.position,player.rotation);
             this.gameObject.SetActive(false);
             Destroy(this.gameObject,2f);
+            SceneManager.LoadScene(1);
         }
 
         if(colider.transform.gameObject.name == "Portal"){

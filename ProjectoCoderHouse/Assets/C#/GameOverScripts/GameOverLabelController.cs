@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GameOverScreen : MonoBehaviour
+public class GameOverLabelController : MonoBehaviour
 {
     List<string> _highScores = new List<string>();
     public Text scoreLabel;
