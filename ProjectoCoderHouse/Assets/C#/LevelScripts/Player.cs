@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     float m_Thrust = 20f;
     float m_AxisMultiplier = 2f;
     Rigidbody m_Rigidbody;
+    float speed = 40f;
 
     float MAXENERGY = 100f;
     float energy = 100f;
@@ -49,8 +50,8 @@ public class Player : MonoBehaviour
     void FixedUpdate()
     {   
         inputForce.x = Input.GetAxis("Horizontal")*m_AxisMultiplier;
-        inputForce *= m_Thrust;
-        m_Rigidbody.velocity = new Vector3(m_Rigidbody.velocity.x, m_Rigidbody.velocity.y, 40f);
+        inputForce *= m_Thrust; 
+        m_Rigidbody.velocity = new Vector3(m_Rigidbody.velocity.x, m_Rigidbody.velocity.y, speed);
         m_Rigidbody.AddForce(inputForce * Time.fixedDeltaTime, ForceMode.Impulse);
 
         

@@ -11,7 +11,7 @@ public class Obstacle : MonoBehaviour
         }
     }
 
-    public void Relocate(){
+    void Relocate(){
         transform.position = new Vector3(Random.Range(-9f,29f),0.5f,transform.position.z);
     }
 }
