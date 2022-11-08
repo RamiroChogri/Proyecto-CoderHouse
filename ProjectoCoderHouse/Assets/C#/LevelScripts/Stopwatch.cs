@@ -18,6 +18,15 @@ public class Stopwatch : MonoBehaviour
         currentTime = 0;
     }
 
+    void OnEnable()
+    {
+        Player.GameOverEvent += StopTimer;
+    }
+
+    void OnDisable()
+    {
+        Player.GameOverEvent -= StopTimer;
+    }
     // Update is called once per frame
     void Update()
     {
@@ -35,5 +44,9 @@ public class Stopwatch : MonoBehaviour
             currentTimeText.enabled = true;
             stopwatchActive = true;
         }
+    }
+
+    void StopTimer(){
+        stopwatchActive = false;
     }
 }

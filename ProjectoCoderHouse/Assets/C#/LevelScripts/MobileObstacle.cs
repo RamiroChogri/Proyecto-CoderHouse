@@ -15,7 +15,6 @@ public class MobileObstacle : Obstacle
 
     void FixedUpdate()
     {
-        Debug.Log(transform.position.x);
         if(transform.position.x > HorizontalPositionMax){
             ChangeDirection(-1);
         }

@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class Portal : MonoBehaviour
 {
 
-    //private int children = 10;
+    public static event Action LevelChangeEvent;
     public GameObject exit;
     // Start is called before the first frame update
     public Vector3 GetExitCoordinates(){
@@ -14,6 +15,8 @@ public class Portal : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        Transform child = transform.Find("Child02");
+        Debug.Log("Portal llamo Level Change Event");
+        LevelChangeEvent?.Invoke();
     }
+
 }

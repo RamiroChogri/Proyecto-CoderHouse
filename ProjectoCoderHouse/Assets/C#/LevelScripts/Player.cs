@@ -2,6 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System;
 
 public class Player : MonoBehaviour
 {
@@ -25,6 +26,10 @@ public class Player : MonoBehaviour
 
     public GameObject boom;
     private Transform player;
+
+    public static event Action GameOverEvent;
+
+
     void Start()
     {
         player = this.gameObject.transform;
@@ -85,7 +90,7 @@ public class Player : MonoBehaviour
             Instantiate(boom,player.position,player.rotation);
             this.gameObject.SetActive(false);
             Destroy(this.gameObject,2f);
-            SceneManager.LoadScene(1);
+            GameOverEvent?.Invoke();
         }
 
         if(colider.transform.gameObject.name == "Portal"){

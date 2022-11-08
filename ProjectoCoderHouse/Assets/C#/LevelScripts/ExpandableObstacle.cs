@@ -9,12 +9,6 @@ public class ExpandableObstacle : Obstacle
     public GameObject cubeExpand;
     int resizeDirection = 1;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {
