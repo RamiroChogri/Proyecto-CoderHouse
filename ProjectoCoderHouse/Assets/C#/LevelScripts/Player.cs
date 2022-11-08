@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
     float m_Thrust = 20f;
     float m_AxisMultiplier = 2f;
     Rigidbody m_Rigidbody;
-    float speed = 40f;
+    public float speed = 40f;
 
     float MAXENERGY = 100f;
     float energy = 100f;
