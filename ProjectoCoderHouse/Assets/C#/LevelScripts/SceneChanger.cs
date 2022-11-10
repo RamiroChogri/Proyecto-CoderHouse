@@ -22,4 +22,7 @@ public class SceneChanger : MonoBehaviour
     void LoadScreen(){
         SceneManager.LoadScene(1);
     }
+    public void LoadGame(){
+        SceneManager.LoadScene(0);
+    }
 }

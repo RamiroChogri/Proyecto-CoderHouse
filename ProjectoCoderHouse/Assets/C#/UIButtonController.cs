@@ -1,11 +1,12 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using UnityEngine.Events;
 
 public class UIButtonController : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField]  private UnityEvent onPlayAgainButton;
+     
     public void PlayAgain(){
-        SceneManager.LoadScene(0);
+        onPlayAgainButton.Invoke();
     }
 
     public void QuitGame(){
