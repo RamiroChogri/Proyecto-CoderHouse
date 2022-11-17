@@ -17,8 +17,8 @@ public class Player : MonoBehaviour
     float energyRechargeRate = 20f;
     Vector3 inputForce;
 
-    public GameObject camOne;
-    public GameObject camTwo;
+    public GameObject effectOne;
+    public GameObject effectTwo;
 
     public GameObject exit;
     public Text energyLabel;
@@ -50,7 +50,7 @@ public class Player : MonoBehaviour
             m_AxisMultiplier = 2f;
         }
         energyLabel.text = "Energy: "+ energy.ToString();
-        ToggleCam(); 
+        ToggleEffect(); 
     }
     void FixedUpdate()
     {   
@@ -67,19 +67,19 @@ public class Player : MonoBehaviour
         }
     }
 
-    void ToggleCam()
+    void ToggleEffect()
     {
         if(Input.GetKeyDown(KeyCode.V))
         {
-            if(camOne.activeInHierarchy)
+            if(effectOne.activeInHierarchy)
             {
-                camOne.SetActive(false);
-                camTwo.SetActive(true);
+                effectOne.SetActive(false);
+                effectTwo.SetActive(true);
             }
             else
             {
-                camOne.SetActive(true);
-                camTwo.SetActive(false);
+                effectOne.SetActive(true);
+                effectTwo.SetActive(false);
             }
         }
     }
