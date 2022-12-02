@@ -15,7 +15,6 @@ public class Portal : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Portal llamo Level Change Event");
         LevelChangeEvent?.Invoke();
     }
 

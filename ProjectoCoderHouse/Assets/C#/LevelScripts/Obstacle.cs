@@ -15,7 +15,6 @@ public class Obstacle : MonoBehaviour
     }
 
     void Relocate(){
-        Debug.Log("Obstaculo Level Change Event Recibido");
         transform.position = new Vector3(Random.Range(-9f,29f),0.5f,transform.position.z);
     }
 }

@@ -37,6 +37,37 @@ public class Player : MonoBehaviour
         m_Rigidbody = GetComponent<Rigidbody>();
     }
 
+
+    void OnEnable()
+    {
+        LevelDifficultyChanger.PlayerSpeedUpEvent += SpeedUp;
+        LevelDifficultyChanger.WeatherChangeEvent += ToggleEffect;
+    }
+
+    void OnDisable()
+    {
+        LevelDifficultyChanger.PlayerSpeedUpEvent -= SpeedUp;
+        LevelDifficultyChanger.WeatherChangeEvent -= ToggleEffect;
+    }
+
+    void SpeedUp(){
+        speed += 5f;
+    }
+
+    void ToggleEffect()
+    {
+        if(effectOne.activeInHierarchy)
+        {
+            effectOne.SetActive(false);
+            effectTwo.SetActive(true);
+        }
+        else
+        {
+            effectOne.SetActive(true);
+            effectTwo.SetActive(false);
+        }
+    }
+
     void Update() 
     {
         if(!Input.GetMouseButton(0) && energy < MAXENERGY){
@@ -49,8 +80,7 @@ public class Player : MonoBehaviour
         }else{
             m_AxisMultiplier = 2f;
         }
-        energyLabel.text = "Energy: "+ energy.ToString();
-        ToggleEffect(); 
+        energyLabel.text = "Energy: "+ energy.ToString(); 
     }
     void FixedUpdate()
     {   
@@ -64,23 +94,6 @@ public class Player : MonoBehaviour
             warningPanel.SetActive(true);
         }else{
             warningPanel.SetActive(false);
-        }
-    }
-
-    void ToggleEffect()
-    {
-        if(Input.GetKeyDown(KeyCode.V))
-        {
-            if(effectOne.activeInHierarchy)
-            {
-                effectOne.SetActive(false);
-                effectTwo.SetActive(true);
-            }
-            else
-            {
-                effectOne.SetActive(true);
-                effectTwo.SetActive(false);
-            }
         }
     }
 
