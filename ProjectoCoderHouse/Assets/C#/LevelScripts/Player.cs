@@ -27,6 +27,8 @@ public class Player : MonoBehaviour
     public GameObject boom;
     private Transform player;
 
+    short coins = 0;
+
     public static event Action GameOverEvent;
 
 
@@ -103,11 +105,16 @@ public class Player : MonoBehaviour
             Instantiate(boom,player.position,player.rotation);
             this.gameObject.SetActive(false);
             Destroy(this.gameObject,2f);
+            ScoreManager.finalCoins = coins;
             GameOverEvent?.Invoke();
         }
 
         if(colider.transform.gameObject.name == "Portal"){
             transform.position = exit.transform.position;
+        }
+
+        if(colider.transform.gameObject.tag == "Coin"){
+            coins++;
         }
     }
 }

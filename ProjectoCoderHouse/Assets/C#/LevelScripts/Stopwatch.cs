@@ -47,6 +47,7 @@ public class Stopwatch : MonoBehaviour
     }
 
     void StopTimer(){
+        ScoreManager.finalTime = currentTime;
         stopwatchActive = false;
     }
 }

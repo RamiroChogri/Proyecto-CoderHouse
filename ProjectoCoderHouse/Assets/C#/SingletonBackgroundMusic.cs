@@ -16,7 +16,7 @@ public class SingletonBackgroundMusic : MonoBehaviour
 		{
 			Destroy(gameObject);
 		}
-		DontDestroyOnLoad (gameObject);
+		DontDestroyOnLoad(gameObject);
     }
     public void PlayMusic(AudioClip clip)
 	{

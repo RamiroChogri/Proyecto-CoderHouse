@@ -33,7 +33,7 @@ public class GameOverLabelController : MonoBehaviour
         }
         pastScoresLabel.text = pastScores;
         highScoreLabel.text = maxScore.ToString();
-        scoreLabel.text = "Your Score : 25";
+        scoreLabel.text = "Your Score : " + ScoreManager.finalScore.ToString();
 
         //Los Leaderboards
         _highScores.Add("Roberta");
