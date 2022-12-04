@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class ExpandableObstacle : Obstacle
 {   
-    Vector3 resizeSpeed = new Vector3 (3f,0,0);
+    Vector3 resizeSpeed = new Vector3 (0,0,3f);
     public GameObject cubeExpand;
     int resizeDirection = 1;
 
@@ -14,11 +14,11 @@ public class ExpandableObstacle : Obstacle
     {
         cubeExpand.transform.localScale += (resizeSpeed*resizeDirection*Time.deltaTime);
         
-        if (cubeExpand.transform.localScale.x >= 3f)
+        if (cubeExpand.transform.localScale.z >= 3f)
         {
             resizeDirection = -1;
         }
-        if (cubeExpand.transform.localScale.x <= 1f)
+        if (cubeExpand.transform.localScale.z <= 1f)
         {
             resizeDirection = 1;
         }
