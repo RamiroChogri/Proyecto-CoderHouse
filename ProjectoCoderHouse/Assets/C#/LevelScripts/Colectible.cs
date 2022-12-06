@@ -4,16 +4,21 @@ using UnityEngine;
 
 public class Colectible : Obstacle
 {
+
+    Animator animator;
     // Start is called before the first frame update
+    void Start() {
+        animator = GetComponent<Animator>();
+    }
+
     void Relocate(){
         transform.position = new Vector3(Random.Range(-9f,29f),0.5f,Random.Range(20f,150f));
-        //this.gameObject.SetActive(true);
     }
 
     void OnTriggerEnter(Collider colider)
     {
         if(colider.transform.gameObject.name == "Player"){
-            //this.gameObject.SetActive(false);
+            animator.Play("Coin Collection", 0, 0.25f);
         }
     }
 

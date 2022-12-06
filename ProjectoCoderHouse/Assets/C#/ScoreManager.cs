@@ -9,7 +9,8 @@ public class ScoreManager : MonoBehaviour
     public static int finalCoins = 0;
     public static float finalTime = 0;
     public static float finalScore = 0;
-
+    public static float[] pastScores = new float[5];
+    int scoreAmount = 0;
 
     void OnEnable()
     {
@@ -35,14 +36,18 @@ public class ScoreManager : MonoBehaviour
     }
 
     void ResetScore(){
-        Debug.Log("Puntaje Reseteado");
         finalTime = 0;
         finalCoins = 0;
         finalScore = 0;
     }
 
     void CalculateScore(){
-        Debug.Log("Puntaje Calculado");
         finalScore = finalTime + 100 * finalCoins;
+        if (scoreAmount > 4) {
+            pastScores[scoreAmount] = finalScore;
+            scoreAmount++;
+        }else{
+            scoreAmount=0;
+        }
     }
 }

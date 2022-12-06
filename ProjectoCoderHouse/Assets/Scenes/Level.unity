@@ -8823,21 +8823,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: TimeExtenderColectible
       objectReference: {fileID: 0}
-    - target: {fileID: 1659301590068349545, guid: e55c0cbce5186f247ad304851bcdb9e7, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1659301590068349545, guid: e55c0cbce5186f247ad304851bcdb9e7, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 11e8928bc962cec4fa5cd9f731f8b327, type: 2}
     - target: {fileID: 1659301590068349547, guid: e55c0cbce5186f247ad304851bcdb9e7, type: 3}
       propertyPath: m_RootOrder
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1659301590068349547, guid: e55c0cbce5186f247ad304851bcdb9e7, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.100000024
       objectReference: {fileID: 0}
     - target: {fileID: 1659301590068349547, guid: e55c0cbce5186f247ad304851bcdb9e7, type: 3}
       propertyPath: m_LocalPosition.x
