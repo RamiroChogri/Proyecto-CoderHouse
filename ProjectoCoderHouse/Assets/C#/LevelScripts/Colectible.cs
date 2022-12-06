@@ -9,10 +9,11 @@ public class Colectible : Obstacle
     // Start is called before the first frame update
     void Start() {
         animator = GetComponent<Animator>();
+        Relocate();
     }
 
     void Relocate(){
-        transform.position = new Vector3(Random.Range(-9f,29f),0.5f,Random.Range(20f,150f));
+        transform.position = new Vector3(Random.Range(-9f,29f),0.5f,Random.Range(40f,350f));
     }
 
     void OnTriggerEnter(Collider colider)
@@ -21,7 +22,5 @@ public class Colectible : Obstacle
             animator.Play("Coin Collection", 0, 0.25f);
         }
     }
-
-    //El set active desactiva el evento de obstacle, y nunca se reactiva,  
 
 }

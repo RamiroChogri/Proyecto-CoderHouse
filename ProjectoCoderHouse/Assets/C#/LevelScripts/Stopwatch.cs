@@ -11,6 +11,8 @@ public class Stopwatch : MonoBehaviour
     float currentTime;
     public Text currentTimeText;
 
+    public static event Action TimerStopped;
+
     
     // Start is called before the first frame update
     void Start()
@@ -50,7 +52,6 @@ public class Stopwatch : MonoBehaviour
     void StopTimer(){
         ScoreManager.finalTime = currentTime;
         stopwatchActive = false;
-        Debug.Log(ScoreManager.finalTime);
-        Debug.Log("Pase por timer");
+        TimerStopped?.Invoke();
     }
 }

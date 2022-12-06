@@ -12,7 +12,8 @@ public class MobileObstacle : Obstacle
     Animator animator;
     void Start(){
         m_Rigidbody = GetComponent<Rigidbody>(); 
-        animator = GetComponent<Animator>();       
+        animator = GetComponent<Animator>();
+        Relocate();       
     }
 
     void FixedUpdate()
@@ -41,6 +42,10 @@ public class MobileObstacle : Obstacle
             m_Thrust = 15f;
             transform.Rotate(0, -90,0);
         }
+    }
+
+    void Relocate(){
+        transform.position = new Vector3(Random.Range(-9f,29f),0.93f,Random.Range(40f,380f));
     }
 
 }

@@ -22,7 +22,6 @@ public class GameOverLabelController : MonoBehaviour
             if (ScoreManager.pastScores[i] > maxScore){
                 maxScore = ScoreManager.pastScores[i];
             }
-            Debug.Log(ScoreManager.pastScores[i]);
             pastScores += ScoreManager.pastScores[i].ToString();
             pastScores += "\n";
         }
