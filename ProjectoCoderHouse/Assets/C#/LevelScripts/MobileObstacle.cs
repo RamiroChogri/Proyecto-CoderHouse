@@ -9,8 +9,10 @@ public class MobileObstacle : Obstacle
 
     float HorizontalPositionMax = 29f;
     float HorizontalPositionMin = -9f;
+    Animator animator;
     void Start(){
-        m_Rigidbody = GetComponent<Rigidbody>();        
+        m_Rigidbody = GetComponent<Rigidbody>(); 
+        animator = GetComponent<Animator>();       
     }
 
     void FixedUpdate()
@@ -32,10 +34,12 @@ public class MobileObstacle : Obstacle
     void ChangeDirection(int direction){
         if(direction == -1){
             m_Thrust = -15f;
+            transform.Rotate(0, 90,0);
         }
         else
         {
             m_Thrust = 15f;
+            transform.Rotate(0, -90,0);
         }
     }
 
