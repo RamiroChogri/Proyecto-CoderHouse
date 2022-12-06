@@ -42,6 +42,7 @@ public class ScoreManager : MonoBehaviour
     }
 
     void CalculateScore(){
+        Debug.Log("Pase por manager");
         finalScore = finalTime + 100 * finalCoins;
         if (scoreAmount > 4) {
             pastScores[scoreAmount] = finalScore;

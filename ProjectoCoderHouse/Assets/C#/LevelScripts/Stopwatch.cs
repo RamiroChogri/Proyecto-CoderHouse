@@ -1,4 +1,5 @@
 
+
 using UnityEngine;
 using UnityEngine.UI;
 using System;
@@ -49,5 +50,7 @@ public class Stopwatch : MonoBehaviour
     void StopTimer(){
         ScoreManager.finalTime = currentTime;
         stopwatchActive = false;
+        Debug.Log(ScoreManager.finalTime);
+        Debug.Log("Pase por timer");
     }
 }
