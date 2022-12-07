@@ -5,10 +5,14 @@ using UnityEngine;
 
 public class ExpandableObstacle : Obstacle
 {   
-    Vector3 resizeSpeed = new Vector3 (0,0,3f);
+    Vector3 resizeSpeed;
     public GameObject cubeExpand;
     int resizeDirection = 1;
 
+    void Start() {
+        resizeSpeed = new Vector3 (0,0,Random.Range(1f,3f));
+        Relocate();
+    }
     // Update is called once per frame
     void Update()
     {
@@ -23,5 +27,6 @@ public class ExpandableObstacle : Obstacle
             resizeDirection = 1;
         }
     }
+
 }
  
