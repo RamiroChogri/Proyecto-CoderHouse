@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System;
+using System.Collections;
 
 public class Player : MonoBehaviour
 {
@@ -82,7 +83,7 @@ public class Player : MonoBehaviour
         }else{
             m_AxisMultiplier = 2f;
         }
-        energyLabel.text = "Energy: "+ energy.ToString(); 
+        energyLabel.text = "Energy: "+ Mathf.FloorToInt (energy).ToString(); 
     }
     void FixedUpdate()
     {   

@@ -45,7 +45,7 @@ public class MobileObstacle : Obstacle
     }
 
     void Relocate(){
-        transform.position = new Vector3(Random.Range(-9f,29f),0.93f,Random.Range(40f,380f));
+        transform.position = new Vector3(Random.Range(-9f,29f),0.93f,Random.Range(40f,400f));
     }
 
 }
