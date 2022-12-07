@@ -18,6 +18,6 @@ public class Obstacle : MonoBehaviour
     }
 
     protected void Relocate(){
-        transform.position = new Vector3(Random.Range(-9f,29f),0.5f,Random.Range(40f,400f));
+        transform.position = new Vector3(Random.Range(-9f,29f),transform.position.y,Random.Range(40f,400f));
     }
 }
